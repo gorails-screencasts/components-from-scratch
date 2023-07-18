@@ -1,0 +1,19 @@
+<div>
+  <h1 class="font-bold text-4xl">Dashboard</h1>
+  <p>This is a custom component.</p>
+</div>
+
+<%= render DashboardComponent.new(title: "Dashboard", description: "This is a custom component.") %>
+
+<%= render CardComponent.new do %>
+  <%= render DashboardComponent.new(title: "Dashboard", description: "This is a custom component.") %>
+<% end %>
+  
+<%= render ModalComponent.new do |component| %>
+  <% component.title = "Are you sure?" %>
+
+  <% component.description do %>
+    <p>This action is destructive and cannot be undone.</p>
+  <% end %>
+
+<% end %>
